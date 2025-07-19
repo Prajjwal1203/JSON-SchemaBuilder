@@ -138,6 +138,9 @@ export const SchemaField: React.FC<SchemaFieldProps> = ({
                   <SelectItem value="Number">
                     <span className={getTypeColor('Number')}>Number</span>
                   </SelectItem>
+                  <SelectItem value="Array">
+                    <span className={getTypeColor('String')}>Array</span>
+                  </SelectItem>
                   <SelectItem value="Nested">
                     <span className={getTypeColor('Nested')}>Nested</span>
                   </SelectItem>

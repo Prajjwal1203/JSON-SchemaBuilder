@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 import { SchemaField } from './SchemaField';
 
-export type FieldType = 'String' | 'Number' | 'Float' | 'Nested' | 'ObjectId' | 'Boolean';
+export type FieldType = 'String' | 'Number' | 'Float' | 'Nested' | 'ObjectId' | 'Boolean' | 'Array';
 
 export interface SchemaFieldData {
   id: string;
@@ -144,18 +144,21 @@ const JSONSchemaBuilder: React.FC = () => {
     
     fields.forEach(field => {
       if (field.type === 'String') {
-        result[field.key] = 'sample string';
+        result[field.key] = 'string';
       } else if (field.type === 'Number') {
-        result[field.key] = 0;
+        result[field.key] = 'number';
       } 
        else if (field.type === 'Float') {
-        result[field.key] = 0.000;
+        result[field.key] = 'Float';
       }
       else if (field.type === 'Boolean') {
-        result[field.key] = 'true and false';
+        result[field.key] = 'Boolean';
       }
       else if (field.type === 'ObjectId') {
-        result[field.key] = 'ee24ad';
+        result[field.key] = 'ObjectId';
+      }
+       else if (field.type === 'Array') {
+        result[field.key] = 'array';
       }
       else if (field.type === 'Nested' && field.children) {
         result[field.key] = generateJSON(field.children);
